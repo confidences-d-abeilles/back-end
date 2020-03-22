@@ -1,0 +1,16 @@
+{
+  "name": "user-api",
+  "sources": [
+    {
+      "dir": "src"
+    },
+    {
+      "dir": "__tests__",
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "commonjs"
+  },
+  "bs-dev-dependencies": ["@glennsl/bs-jest"]
+}

@@ -1,7 +1,7 @@
 {
   "name": "user-api",
   "version": "1.0.0",
-  "main": "index.mjs",
+  "main": "lib/js/src/index.js",
   "repository": "git@github.com:confidences-d-abeilles/user-api.git",
   "author": "cchampou <clement@champouillon.com>",
   "license": "MIT",
@@ -10,6 +10,13 @@
     "mongoose": "^5.9.5"
   },
   "scripts": {
-    "start": "node --experimental-modules index.mjs"
+    "build": "bsb -make-world",
+    "start": "node lib/js/src/index.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.5.0",
+    "bs-platform": "^7.2.2",
+    "jest": "^25.1.0"
   }
 }
