@@ -1,6 +1,6 @@
-const { getClient } = require('../database');
 const { logWarning } = require('@cda/logger');
 
+const { getClient } = require('../database');
 
 const findOne = async ({ email }) => {
   const client = getClient();
