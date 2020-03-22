@@ -42,13 +42,6 @@ name: CD
 steps:
   - name: build
     image: docker
-    environment:
-      MONGO_URL:
-        from_secret: MONGO_URL
-      JWT_SECRET:
-        from_secret: JWT_SECRET
-      JWT_EXPIRATION:
-        from_secret: JWT_EXPIRATION
     commands:
       - docker build . -t cda-user-api:latest
     volumes:
@@ -57,12 +50,20 @@ steps:
   - name: deploy-preview
     image: docker/compose:1.24.1
     environment:
-      MONGO_URL:
-        from_secret: MONGO_URL
       JWT_SECRET:
         from_secret: JWT_SECRET
       JWT_EXPIRATION:
         from_secret: JWT_EXPIRATION
+      PGUSER:
+        from_secret: PGUSER
+      PGHOST:
+        from_secret: PGHOST
+      PGPASSWORD:
+        from_secret: PGPASSWORD
+      PGDATABASE:
+        from_secret: PGDATABASE
+      PGPORT:
+        from_secret: PGPORT
     volumes:
       - name: docker
         path: /var/run/docker.sock
@@ -73,12 +74,20 @@ steps:
   - name: deploy-production
     image: docker/compose:1.24.1
     environment:
-      MONGO_URL:
-        from_secret: MONGO_URL
       JWT_SECRET:
         from_secret: JWT_SECRET
       JWT_EXPIRATION:
         from_secret: JWT_EXPIRATION
+      PGUSER:
+        from_secret: PGUSER
+      PGHOST:
+        from_secret: PGHOST
+      PGPASSWORD:
+        from_secret: PGPASSWORD
+      PGDATABASE:
+        from_secret: PGDATABASE
+      PGPORT:
+        from_secret: PGPORT
     volumes:
       - name: docker
         path: /var/run/docker.sock

@@ -7,7 +7,15 @@ const { initDb } = require('./database');
 
 const { auth } = require('./controllers/user');
 
-const mandatoryFields = ['MONGO_URL', 'JWT_SECRET', 'JWT_EXPIRATION'];
+const mandatoryFields = [
+  'JWT_SECRET',
+  'JWT_EXPIRATION',
+  'PGUSER',
+  'PGHOST',
+  'PGPASSWORD',
+  'PGDATABASE',
+  'PGPORT',
+];
 
 const app = express();
 const port = 3000;
