@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
-const { logError, logWarning, logSuccess, logDebug } = require('../index.js');
+const {
+  logError, logWarning, logSuccess, logDebug,
+} = require('../index.js');
 
 
 describe('logger', () => {
