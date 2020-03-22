@@ -2,7 +2,7 @@ version: '3'
 services:
   preview:
     build: .
-    image: cda-user-api:lastest
+    image: cda-user-api:latest
     restart: always
     labels:
       - "traefik.frontend.rule=Host:auth.cda.cchampou.me"
