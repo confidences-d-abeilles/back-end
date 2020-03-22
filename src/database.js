@@ -3,17 +3,25 @@ const { Client } = require('pg');
 const { logSuccess } = require('@cda/logger');
 const { getEnv } = require('@cda/env');
 
-module.exports = async () => {
+let client;
+
+const initDb = async () => {
   const {
     PGUSER, PGHOST, PGDATABASE, PGPASSWORD,
   } = getEnv();
-  const client = new Client({
+  client = new Client({
     user: PGUSER,
     host: PGHOST,
     database: PGDATABASE,
     password: PGPASSWORD,
   });
-  const db = await client.connect();
+  await client.connect();
   logSuccess('Connected to the database');
-  return db;
+};
+
+const getClient = () => client;
+
+module.exports = {
+  initDb,
+  getClient,
 };

@@ -1,8 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const { logError, logSuccess } = require('@cda/logger');
 const { checkEnv, getEnv } = require('@cda/env');
 
-const connectDatabase = require('./database');
+const { initDb } = require('./database');
 
 const { auth } = require('./controllers/user');
 
@@ -15,9 +16,12 @@ const port = 3000;
   try {
     const env = getEnv();
     checkEnv(env, mandatoryFields);
-    await connectDatabase();
+    await initDb();
 
-    app.get('/', auth);
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+
+    app.post('/', auth);
 
     app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {

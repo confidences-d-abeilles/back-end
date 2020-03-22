@@ -1,12 +1,19 @@
+const { getClient } = require('../database');
+const { logWarning } = require('@cda/logger');
 
-const { Schema, model } = require('mongoose');
+
+const findOne = async ({ email }) => {
+  const client = getClient();
+  try {
+    const { rows } = await client.query('SELECT * FROM public.user WHERE email = $1', [email]);
+    return rows[0];
+  } catch (e) {
+    logWarning(e);
+    return null;
+  }
+};
 
 
-const userSchema = new Schema({
-  email: String,
-  password: String,
-});
-
-const User = model('user', userSchema, 'user');
-
-module.exports = User;
+module.exports = {
+  findOne,
+};
