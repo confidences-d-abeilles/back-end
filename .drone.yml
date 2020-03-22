@@ -3,10 +3,16 @@ type: docker
 name: CI
 
 steps:
-  - name: build
+  - name: install
     image: node:10
     commands:
       - yarn
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+  - name: build
+    image: node:10
+    commands:
       - yarn build
     volumes:
       - name: docker
