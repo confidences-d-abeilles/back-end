@@ -5,7 +5,6 @@ EXPOSE 3000
 
 COPY . /src
 WORKDIR src
-RUN rm yarn.lock
 
 RUN yarn --network-timeout 100000
 
