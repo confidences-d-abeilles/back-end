@@ -5,5 +5,8 @@
   "repository": "git@github.com:confidences-d-abeilles/user-api.git",
   "author": "cchampou <clement@champouillon.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "mongoose": "^5.9.5"
+  }
 }
