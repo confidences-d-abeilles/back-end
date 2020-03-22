@@ -5,9 +5,7 @@ const getEnv = () => {
   return process.env;
 };
 
-const mandatoryFields = ['MONGO_URL'];
-
-const checkEnv = (env) => {
+const checkEnv = (env, mandatoryFields) => {
   mandatoryFields.map((field) => {
     if (!env[field]) {
       throw new Error(`Missing field ${field} in environment`);
