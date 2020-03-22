@@ -1,6 +1,6 @@
 
-const { logError } = require('./utils/logger.js');
-const { checkEnv, getEnv } = require('./utils/env.js');
+const { logError } = require('logger');
+const { checkEnv, getEnv } = require('env');
 
 try {
   checkEnv(getEnv());

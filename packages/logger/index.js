@@ -12,4 +12,5 @@ const logWarning = (message) => {
 
 module.exports = {
   logError,
+  logWarning,
 };

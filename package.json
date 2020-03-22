@@ -6,6 +6,9 @@
   "author": "cchampou <clement@champouillon.com>",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
