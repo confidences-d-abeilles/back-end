@@ -2,7 +2,7 @@ const { checkFields } = require('../request');
 
 describe('request', () => {
   describe('checkFields', () => {
-    const body: {
+    const body = {
       tata: 'test',
       toto: 69,
       titi: ['a', 'm', 'a', 'z', 'i', 'n', 'g'],
