@@ -7,7 +7,7 @@ steps:
   - name: install
     image: node:13
     commands:
-      - yarn
+      - yarn --network-timeout 100000
     volumes:
       - name: docker
         path: /var/run/docker.sock
