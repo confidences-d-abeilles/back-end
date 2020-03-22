@@ -10,4 +10,7 @@ COPY . .
 
 EXPOSE 3000
 
+RUN pwd
+RUN ls
+
 CMD yarn start
