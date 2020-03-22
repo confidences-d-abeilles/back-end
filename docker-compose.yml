@@ -1,0 +1,29 @@
+version: '3'
+services:
+  preview:
+    build: .
+    image: cda-user-api:lastest
+    restart: always
+    labels:
+      - "traefik.frontend.rule=Host:auth.cda.cchampou.me"
+      - "traefik.backend.port=3000"
+      - "traefik.enable=true"
+      - "traefik.docker.network=layko_layko_net"
+    environment:
+      NODE_ENV: staging
+  production:
+    build: .
+    image: cda-user-api:latest
+    restart: always
+    labels:
+      - "traefik.frontend.rule=Host:auth.parrainage.confidencesdabeilles.fr"
+      - "traefik.backend.port=3000"
+      - "traefik.enable=true"
+      - "traefik.docker.network=layko_layko_net"
+    environment:
+      NODE_ENV: production
+
+networks:
+  default:
+    external:
+      name: layko_layko_net

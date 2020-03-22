@@ -25,6 +25,45 @@ steps:
       - name: docker
         path: /var/run/docker.sock
 
+kind: pipeline
+name: CD
+
+steps:
+  - name: build
+    image: docker
+    commands:
+      - docker build . -t cda-user-api:latest
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+  - name: deploy-preview
+    image: docker/compose:1.24.1
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -p cda-user-api up -d preview
+    depends_on:
+      - build
+  - name: deploy-production
+    image: docker/compose:1.24.1
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+    commands:
+      - docker-compose -p cda-user-api up -d production
+    depends_on:
+      - build
+    when:
+      branch:
+        - master
+
+volumes:
+  - name: docker
+    host:
+      path: /var/run/docker.sock
+
+
 volumes:
   - name: docker
     host:
