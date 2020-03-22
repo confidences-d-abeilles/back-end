@@ -4,16 +4,23 @@ name: CI
 
 steps:
   - name: install
-    image: node:10
+    image: node:13
     commands:
       - yarn
     volumes:
       - name: docker
         path: /var/run/docker.sock
   - name: test
-    image: node:10
+    image: node:13
     commands:
       - yarn test
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+  - name: lint
+    image: node:13
+    commands:
+      - yarn lint
     volumes:
       - name: docker
         path: /var/run/docker.sock
