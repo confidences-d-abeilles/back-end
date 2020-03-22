@@ -1,5 +1,8 @@
 {
-  "name": "logger",
+  "name": "@cda/logger",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "chalk": "^3.0.0"
+  }
 }

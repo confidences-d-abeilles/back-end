@@ -1,6 +1,6 @@
 
-const { logError } = require('logger');
-const { checkEnv, getEnv } = require('env');
+const { logError } = require('@cda/logger');
+const { checkEnv, getEnv } = require('@cda/env');
 
 try {
   checkEnv(getEnv());

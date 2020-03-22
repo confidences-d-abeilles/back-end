@@ -7,12 +7,14 @@ const getEnv = () => {
 
 const mandatoryFields = ['MONGO_URL'];
 
-const checkEnv = env => {
-  mandatoryFields.map(field => {
+const checkEnv = (env) => {
+  mandatoryFields.map((field) => {
     if (!env[field]) {
-      throw new Error(`Missing field ${field} in environment`)
+      throw new Error(`Missing field ${field} in environment`);
     }
+    return null;
   });
+  return null;
 };
 
 module.exports = {
