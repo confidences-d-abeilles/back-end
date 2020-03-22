@@ -1,12 +1,15 @@
 {
   "name": "user-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "repository": "git@github.com:confidences-d-abeilles/user-api.git",
   "author": "cchampou <clement@champouillon.com>",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "mongoose": "^5.9.5"
+  },
+  "scripts": {
+    "start": "node --experimental-modules index.mjs"
   }
 }
