@@ -10,7 +10,7 @@ const logError = (message) => withTime(chalk.redBright(message));
 
 const logWarning = (message) => withTime(chalk.yellow(message));
 
-const logSuccess = (message) => withTime(chalk.green(message));
+const logSuccess = (message) => withTime(chalk.greenBright(message));
 
 const logDebug = (message) => withTime(message);
 
