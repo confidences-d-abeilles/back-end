@@ -4,14 +4,14 @@ name: CI
 
 steps:
   - name: build
-    image: docker
+    image: node:12
     commands:
       - yarn build
     volumes:
       - name: docker
         path: /var/run/docker.sock
   - name: test
-    image: docker
+    image: node:12
     commands:
       - yarn build
       - yarn test
