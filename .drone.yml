@@ -16,8 +16,6 @@ steps:
   - name: test
     image: node:10
     commands:
-      - yarn
-      - yarn build
       - yarn test
     volumes:
       - name: docker
