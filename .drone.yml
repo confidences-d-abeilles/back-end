@@ -7,12 +7,15 @@ steps:
   - name: install
     image: node:13
     commands:
-      - yarn --network-timeout 100000
+      - yarn --network-timeout 1000000
     volumes:
       - name: docker
         path: /var/run/docker.sock
   - name: test
     image: node:13
+    environment:
+      CODECOV_TOKEN:
+        from_secret: CODECOV_TOKEN
     commands:
       - yarn test:ci
     volumes:
