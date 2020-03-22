@@ -1,12 +1,20 @@
 kind: pipeline
 type: docker
-name: default
+name: CI
 
 steps:
   - name: build
     image: docker
     commands:
-      - ls
+      - yarn build
+    volumes:
+      - name: docker
+        path: /var/run/docker.sock
+  - name: test
+    image: docker
+    commands:
+      - yarn build
+      - yarn test
     volumes:
       - name: docker
         path: /var/run/docker.sock
