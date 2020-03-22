@@ -11,8 +11,6 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
-    depends_on:
-      - clone
   - name: test
     image: node:10
     commands:
@@ -20,8 +18,6 @@ steps:
     volumes:
       - name: docker
         path: /var/run/docker.sock
-    depends_on:
-      - clone
 
 volumes:
   - name: docker
