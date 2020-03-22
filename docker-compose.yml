@@ -11,6 +11,9 @@ services:
       - "traefik.docker.network=layko_layko_net"
     environment:
       NODE_ENV: staging
+      MONGO_URL: $MONGO_URL
+      JWT_SECRET: $JWT_SECRET
+      JWT_EXPIRATION: $JWT_EXPIRATION
   production:
     build: .
     image: cda-user-api:latest
@@ -22,7 +25,9 @@ services:
       - "traefik.docker.network=layko_layko_net"
     environment:
       NODE_ENV: production
-
+      MONGO_URL: $MONGO_URL
+      JWT_SECRET: $JWT_SECRET
+      JWT_EXPIRATION: $JWT_EXPIRATION
 networks:
   default:
     external:

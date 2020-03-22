@@ -1,4 +1,5 @@
 const { getEnv } = require('@cda/env');
+const { sign } = require('jsonwebtoken');
 
 const signJwt = (id, email, roles) => new Promise((resolve) => {
   const env = getEnv();

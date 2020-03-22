@@ -56,6 +56,13 @@ steps:
         path: /var/run/docker.sock
   - name: deploy-preview
     image: docker/compose:1.24.1
+    environment:
+      MONGO_URL:
+        from_secret: MONGO_URL
+      JWT_SECRET:
+        from_secret: JWT_SECRET
+      JWT_EXPIRATION:
+        from_secret: JWT_EXPIRATION
     volumes:
       - name: docker
         path: /var/run/docker.sock
@@ -65,6 +72,13 @@ steps:
       - build
   - name: deploy-production
     image: docker/compose:1.24.1
+    environment:
+      MONGO_URL:
+        from_secret: MONGO_URL
+      JWT_SECRET:
+        from_secret: JWT_SECRET
+      JWT_EXPIRATION:
+        from_secret: JWT_EXPIRATION
     volumes:
       - name: docker
         path: /var/run/docker.sock

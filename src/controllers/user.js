@@ -1,27 +1,26 @@
-const { logDebug, logError } = require('@cda/logger');
+const { logError } = require('@cda/logger');
 const { compare } = require('bcrypt');
 const { signJwt } = require('../utils/jwt');
 const { checkFields } = require('../utils/request');
 
 const User = require('../models/user');
 
-const auth = async (req, res) => {
+const auth = async ({ body }, res) => {
   try {
-    if (!checkFields(req, ['email', 'password'])) {
+    if (!checkFields(body, ['email', 'password'])) {
       return res.status(400).send('Missing parameters');
     }
-    const user = await User.findOne({ email: 'clement@champouillon.com' });
-    logDebug(req.body);
-    if (!(await compare('toto', user.password))) {
+    const { email, password } = body;
+    const user = await User.findOne({ email });
+    if (!(await compare(password, user.password))) {
       return res.status(401).send('Invalid credentials');
     }
 
     // TODO: Add roles here
-    const token = signJwt(user.id, user.email, null);
+    const token = await signJwt(user.id, user.email, null);
     return res.json(token).send();
   } catch (e) {
     logError(e);
-    throw (e);
     return res.status(500).send('Server error');
   }
 };
