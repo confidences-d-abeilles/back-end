@@ -1,5 +1,5 @@
 
-const { Client } = require('pg');
+const knex = require('knex');
 const { logSuccess } = require('@cda/logger');
 const { getEnv } = require('@cda/env');
 
@@ -9,13 +9,17 @@ const initDb = async () => {
   const {
     PGUSER, PGHOST, PGDATABASE, PGPASSWORD,
   } = getEnv();
-  client = new Client({
-    user: PGUSER,
-    host: PGHOST,
-    database: PGDATABASE,
-    password: PGPASSWORD,
+
+  client = knex({
+    client: 'pg',
+    version: '7.2',
+    connection: {
+      host : PGHOST,
+      user : PGUSER,
+      password : PGPASSWORD,
+      database : PGDATABASE,
+    },
   });
-  await client.connect();
   logSuccess('Connected to the database');
 };
 
