@@ -12,4 +12,4 @@ WORKDIR src
 RUN pwd
 RUN ls
 
-CMD ["yarn", 'start']
+CMD yarn start
