@@ -5,6 +5,23 @@ const { checkFields } = require('../utils/request');
 
 const User = require('../models/user');
 
+
+/**
+ * @api {get} /getJwt Generate a new Jwt
+ * @apiName GetJwt
+ * @apiGroup User
+ * @apiVersion 1.0.0
+ *
+ * @apiParam {String} email Email address
+ * @apiParam {String} password Password
+ *
+ * @apiErrorExample 401
+ *  HTTP 401 Invalid credentials
+ * @apiErrorExample 400
+ *  HTTP 400 Missing parameters
+ *
+ * @apiSuccess {String} token Newly created token
+ */
 const auth = async ({ body }, res) => {
   try {
     if (!checkFields(body, ['email', 'password'])) {

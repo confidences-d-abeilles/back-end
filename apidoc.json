@@ -1,0 +1,7 @@
+{
+  "name": "user-api",
+  "version": "1.0.0",
+  "description": "User-API",
+  "title": "USER API",
+  "url" : "https://api.github.com/v1"
+}
