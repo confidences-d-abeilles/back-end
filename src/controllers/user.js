@@ -5,6 +5,7 @@ const { checkFields } = require('../utils/request');
 
 const User = require('../models/user');
 
+const Token = require('../models/token');
 
 /**
  * @api {get} /getJwt Generate a new Jwt
@@ -34,8 +35,9 @@ const auth = async ({ body }, res) => {
     }
 
     // TODO: Add roles here
-    const token = await signJwt(user.id, user.email, null);
-    return res.json(token).send();
+    const tokens = await signJwt(user.id, user.email, null);
+    await Token.insertOne(user.id, tokens.refreshToken);
+    return res.json(tokens).send();
   } catch (e) {
     logError(e);
     return res.status(500).send('Server error');

@@ -3,12 +3,15 @@ const { sign } = require('jsonwebtoken');
 
 const signJwt = (id, email, roles) => new Promise((resolve) => {
   const env = getEnv();
-  const token = sign({
+  const accessToken = sign({
     id,
     email,
     roles,
   }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRATION });
-  resolve(token);
+  const refreshToken = sign({
+    id,
+  }, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRATION * 5040 });
+  resolve({ accessToken, refreshToken });
 });
 
 

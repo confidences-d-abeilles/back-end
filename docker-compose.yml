@@ -1,5 +1,18 @@
 version: '3'
 services:
+  pg:
+    image: postgres:latest
+    restart: always
+    networks:
+      - layko_net
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: $PGPASSWORD
+    volumes:
+      - ${PERSIST_FOLDER}pg:/var/lib/postgresql/data
+    labels:
+      - "traefik.frontend.rule=Host:pgsql.cchampou.me"
   preview:
     build: .
     image: cda-user-api:latest
@@ -11,7 +24,11 @@ services:
       - "traefik.docker.network=layko_layko_net"
     environment:
       NODE_ENV: staging
-      MONGO_URL: $MONGO_URL
+      PGUSER: $PGUSER
+      PGDATABASE: $PGDATABASE
+      PGPORT: $PGPORT
+      PGHOST: PGHOST
+      PGPASSWORD: $PGPASSWORD
       JWT_SECRET: $JWT_SECRET
       JWT_EXPIRATION: $JWT_EXPIRATION
   production:
@@ -25,7 +42,11 @@ services:
       - "traefik.docker.network=layko_layko_net"
     environment:
       NODE_ENV: production
-      MONGO_URL: $MONGO_URL
+      PGUSER: $PGUSER
+      PGDATABASE: $PGDATABASE
+      PGPORT: $PGPORT
+      PGHOST: PGHOST
+      PGPASSWORD: $PGPASSWORD
       JWT_SECRET: $JWT_SECRET
       JWT_EXPIRATION: $JWT_EXPIRATION
 networks:
