@@ -22,6 +22,8 @@ services:
       - "traefik.backend.port=3000"
       - "traefik.enable=true"
       - "traefik.docker.network=layko_layko_net"
+    links:
+      - pg
     environment:
       NODE_ENV: staging
       PGUSER: $PGUSER
@@ -40,6 +42,8 @@ services:
       - "traefik.backend.port=3000"
       - "traefik.enable=true"
       - "traefik.docker.network=layko_layko_net"
+    links:
+      - pg
     environment:
       NODE_ENV: production
       PGUSER: $PGUSER
