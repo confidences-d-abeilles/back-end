@@ -173,29 +173,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "name",
-            "description": "<p>Name of the beehive</p>"
+            "field": "title",
+            "description": "<p>Title of the article</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "identifier",
-            "description": "<p>Technical identifier</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "occupation",
-            "description": "<p>Current occupation in percent</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "memo",
-            "description": "<p>A quick note space</p>"
+            "field": "content",
+            "description": "<p>Content of the article</p>"
           }
         ]
       }
