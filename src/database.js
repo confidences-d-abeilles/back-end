@@ -14,10 +14,10 @@ const initDb = async () => {
     client: 'pg',
     version: '7.2',
     connection: {
-      host : PGHOST,
-      user : PGUSER,
-      password : PGPASSWORD,
-      database : PGDATABASE,
+      host: PGHOST,
+      user: PGUSER,
+      password: PGPASSWORD,
+      database: PGDATABASE,
     },
   });
   logSuccess('Connected to the database');
