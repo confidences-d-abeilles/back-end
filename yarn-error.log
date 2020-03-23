@@ -30,7 +30,7 @@ npm manifest:
   {
     "name": "user-api",
     "version": "1.0.0",
-    "main": "src/index.js",
+    "main": "src/auth.js",
     "repository": "git@github.com:confidences-d-abeilles/user-api.git",
     "author": "cchampou <clement@champouillon.com>",
     "license": "MIT",
@@ -50,7 +50,7 @@ npm manifest:
       "jest": "^25.1.0"
     },
     "scripts": {
-      "start": "node src/index.js",
+      "start": "node src/auth.js",
       "test": "jest",
       "lint": "eslint ."
     }

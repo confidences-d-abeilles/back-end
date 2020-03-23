@@ -5,7 +5,7 @@ const { checkEnv, getEnv } = require('@cda/env');
 
 const { initDb } = require('./database');
 
-const { auth } = require('./controllers/user');
+const userRouter = require('./routers/user');
 
 const mandatoryFields = [
   'JWT_SECRET',
@@ -29,7 +29,7 @@ const port = 3000;
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.post('/', auth);
+    app.use('/user', userRouter);
 
     app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {

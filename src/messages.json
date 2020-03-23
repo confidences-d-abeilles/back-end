@@ -1,0 +1,6 @@
+{
+  "SERV_ERR": "Internal server error",
+  "MISS_PARAM": "Missing parameters",
+  "INVALID_CRED": "Invalid credentials",
+  "OK": "Ok"
+}
