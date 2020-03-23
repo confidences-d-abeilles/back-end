@@ -1,7 +1,7 @@
 {
-  "name": "user-api",
+  "name": "The brand new User API for CDA",
   "version": "1.0.0",
-  "description": "User-API",
-  "title": "USER API",
+  "description": "",
+  "title": "User API",
   "url" : "https://api.github.com/v1"
 }

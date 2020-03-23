@@ -21,7 +21,8 @@ const Token = require('../models/token');
  * @apiErrorExample 400
  *  HTTP 400 Missing parameters
  *
- * @apiSuccess {String} token Newly created token
+ * @apiSuccess {String} accessToken Newly created access token
+ * @apiSuccess {String} renewToken Newly created renew token
  */
 const auth = async ({ body }, res) => {
   try {

@@ -47,8 +47,15 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "token",
-            "description": "<p>Newly created token</p>"
+            "field": "accessToken",
+            "description": "<p>Newly created access token</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "renewToken",
+            "description": "<p>Newly created renew token</p>"
           }
         ]
       }
