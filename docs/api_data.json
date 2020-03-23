@@ -95,6 +95,72 @@
   },
   {
     "type": "post",
+    "url": "/beehive",
+    "title": "Creates a beehive",
+    "name": "CreateBeehive",
+    "group": "Beehive",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the beehive</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "identifier",
+            "description": "<p>Technical identifier</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "occupation",
+            "description": "<p>Current occupation in percent</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "memo",
+            "description": "<p>A quick note space</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "400",
+          "content": "HTTP 400 Missing parameters",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/beehive.js",
+    "groupTitle": "Beehive"
+  },
+  {
+    "type": "post",
     "url": "/user/auth",
     "title": "Generate a new Jwt",
     "name": "Authenticate",
