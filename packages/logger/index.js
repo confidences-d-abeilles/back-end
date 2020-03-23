@@ -6,11 +6,11 @@ const withTime = (message) => {
   console.log(chalk.rgb(100, 100, 100)(timestamp.toLocaleString()), message);
 };
 
-const logError = (message) => withTime(chalk.redBright(message));
+const logError = (message) => withTime(chalk.red(message));
 
 const logWarning = (message) => withTime(chalk.yellow(message));
 
-const logSuccess = (message) => withTime(chalk.greenBright(message));
+const logSuccess = (message) => withTime(chalk.green(message));
 
 const logDebug = (message) => withTime(message);
 

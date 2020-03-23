@@ -1,27 +1,21 @@
-const { logWarning } = require('@cda/logger');
+const { logDebug } = require('@cda/logger');
 
 const { getClient } = require('../database');
 
 const findOne = async (fields) => {
+  logDebug('Finding user');
   const client = getClient();
-  try {
-    const rows = await client.where(fields).select('password', 'id', 'email').from('user');
-    return rows[0] || null;
-  } catch (e) {
-    logWarning(e);
-    return null;
-  }
+  const rows = await client.where(fields).select('password', 'id', 'email').from('user');
+  logDebug('Success');
+  return rows[0] || null;
 };
 
 const insertOne = async (fields) => {
+  logDebug('Inserting user');
   const client = getClient();
-  try {
-    const rows = await client.insert(fields).into('user');
-    return rows[0];
-  } catch (e) {
-    logWarning(e);
-    return null;
-  }
+  const rows = await client.insert(fields).into('user');
+  logDebug('Success');
+  return rows[0] || null;
 };
 
 

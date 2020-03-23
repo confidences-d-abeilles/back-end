@@ -21,7 +21,7 @@ const auth = async ({ body }, res) => {
 
     // TODO: Add roles here
     const tokens = await signJwt(user.id, user.email, null);
-    await Token.insertOne(user.id, tokens.refreshToken);
+    await Token.insertOne({ userId: user.id, refreshToken: tokens.refreshToken });
     return res.json(tokens).send();
   } catch (e) {
     logError(e);
