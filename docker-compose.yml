@@ -9,8 +9,6 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: $PGPASSWORD
-    volumes:
-      - ${PERSIST_FOLDER}pg:/var/lib/postgresql/data
     labels:
       - "traefik.frontend.rule=Host:pgsql.cchampou.me"
   preview:
