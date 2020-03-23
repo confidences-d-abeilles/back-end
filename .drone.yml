@@ -72,7 +72,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     commands:
-      - docker-compose -p cda-user-api up -d preview
+      - docker-compose -p cda-user-api up -d preview pg
     depends_on:
       - build
   - name: deploy-production
@@ -96,7 +96,7 @@ steps:
       - name: docker
         path: /var/run/docker.sock
     commands:
-      - docker-compose -p cda-user-api up -d production
+      - docker-compose -p cda-user-api up -d production pg
     depends_on:
       - build
     when:
