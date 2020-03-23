@@ -4,6 +4,7 @@ define({ "api": [
     "url": "/auth",
     "title": "Generate a new Jwt",
     "name": "Authenticate",
+    "group": "/user",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -60,14 +61,14 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "group": "/Users/cchampouillon/code/user-api/src/routers/user.js",
-    "groupTitle": "/Users/cchampouillon/code/user-api/src/routers/user.js"
+    "groupTitle": "/user"
   },
   {
     "type": "post",
     "url": "/signup",
     "title": "Create a new user",
     "name": "SignUp",
+    "group": "/user",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -147,7 +148,6 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "group": "/Users/cchampouillon/code/user-api/src/routers/user.js",
-    "groupTitle": "/Users/cchampouillon/code/user-api/src/routers/user.js"
+    "groupTitle": "/user"
   }
 ] });
