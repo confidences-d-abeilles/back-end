@@ -3,12 +3,12 @@ const { Router } = require('express');
 
 const router = Router();
 
-const Hive = require('../controllers/beehive');
+const News = require('../controllers/news');
 
 /**
- * @api {post} /beehive Creates a beehive
- * @apiName CreateBeehive
- * @apiGroup Beehive
+ * @api {post} /news Creates a news
+ * @apiName CreateNews
+ * @apiGroup News
  * @apiVersion 1.0.0
  *
  * @apiParam {String} name Name of the beehive
@@ -21,6 +21,6 @@ const Hive = require('../controllers/beehive');
  *
  * @apiSuccess {String} message OK
  */
-router.post('/', Hive.create);
+router.post('/', News.create);
 
 module.exports = router;
