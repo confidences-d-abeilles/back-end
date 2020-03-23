@@ -33,6 +33,6 @@
     "test": "jest",
     "test:ci": "jest --collectCoverage && codecov",
     "lint": "eslint src --cache",
-    "doc": "apidoc -i src -o docs"
+    "doc": "apidoc -i src/routers -o docs"
   }
 }
