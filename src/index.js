@@ -8,6 +8,8 @@ const { initDb } = require('./database');
 const userRouter = require('./routers/user');
 const addressRouter = require('./routers/address');
 const beehiveRouter = require('./routers/beehive');
+const newsRouter = require('./routers/news');
+const orderRouter = require('./routers/order');
 
 const mandatoryFields = [
   'JWT_SECRET',
@@ -34,6 +36,8 @@ const port = 3000;
     app.use('/user', userRouter);
     app.use('/address', addressRouter);
     app.use('/beehive', beehiveRouter);
+    app.use('/news', newsRouter);
+    app.use('/order', orderRouter);
 
     app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {
