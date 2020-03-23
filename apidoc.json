@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "description": "",
   "title": "User API",
-  "url" : "https://api.github.com/v1"
+  "url" : "https://auth.cda.cchampou.me"
 }

@@ -1,10 +1,10 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/auth",
+    "url": "/user/auth",
     "title": "Generate a new Jwt",
     "name": "Authenticate",
-    "group": "/user",
+    "group": "User",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -61,14 +61,14 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "groupTitle": "/user"
+    "groupTitle": "User"
   },
   {
     "type": "post",
-    "url": "/signup",
+    "url": "/user/signup",
     "title": "Create a new user",
     "name": "SignUp",
-    "group": "/user",
+    "group": "User",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -148,6 +148,6 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "groupTitle": "/user"
+    "groupTitle": "User"
   }
 ] });
