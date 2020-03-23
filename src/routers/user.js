@@ -39,8 +39,7 @@ router.post('/auth', auth);
  * @apiErrorExample 400
  *  HTTP 400 Missing parameters
  *
- * @apiSuccess {String} accessToken Newly created access token
- * @apiSuccess {String} renewToken Newly created renew token
+ * @apiSuccess {String} message OK
  */
 router.post('/signup', signUp);
 
