@@ -29,6 +29,10 @@ steps:
       - name: docker
         path: /var/run/docker.sock
 
+trigger:
+  branch:
+    - master
+
 volumes:
   - name: docker
     host:
@@ -103,3 +107,7 @@ volumes:
   - name: docker
     host:
       path: /var/run/docker.sock
+
+trigger:
+  branch:
+    - master
