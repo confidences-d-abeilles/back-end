@@ -5,9 +5,8 @@ const router = Router();
 
 
 /**
- * @api {get} /auth Generate a new Jwt
+ * @api {post} /auth Generate a new Jwt
  * @apiName Authenticate
- * @apiGroup /user
  * @apiVersion 1.0.0
  *
  * @apiParam {String} email Email address
@@ -24,9 +23,8 @@ const router = Router();
 router.post('/auth', auth);
 
 /**
- * @api {get} /signup Create a new user
+ * @api {post} /signup Create a new user
  * @apiName SignUp
- * @apiGroup /user
  * @apiVersion 1.0.0
  *
  * @apiParam {String} email Email address

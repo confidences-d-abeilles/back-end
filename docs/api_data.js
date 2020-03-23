@@ -1,10 +1,9 @@
 define({ "api": [
   {
-    "type": "get",
+    "type": "post",
     "url": "/auth",
     "title": "Generate a new Jwt",
     "name": "Authenticate",
-    "group": "/user",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -61,14 +60,14 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "groupTitle": "/user"
+    "group": "/Users/cchampouillon/code/user-api/src/routers/user.js",
+    "groupTitle": "/Users/cchampouillon/code/user-api/src/routers/user.js"
   },
   {
-    "type": "get",
+    "type": "post",
     "url": "/signup",
     "title": "Create a new user",
     "name": "SignUp",
-    "group": "/user",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -121,11 +120,6 @@ define({ "api": [
     "error": {
       "examples": [
         {
-          "title": "401",
-          "content": "HTTP 401 Invalid credentials",
-          "type": "json"
-        },
-        {
           "title": "400",
           "content": "HTTP 400 Missing parameters",
           "type": "json"
@@ -153,6 +147,7 @@ define({ "api": [
       }
     },
     "filename": "src/routers/user.js",
-    "groupTitle": "/user"
+    "group": "/Users/cchampouillon/code/user-api/src/routers/user.js",
+    "groupTitle": "/Users/cchampouillon/code/user-api/src/routers/user.js"
   }
 ] });
