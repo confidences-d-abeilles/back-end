@@ -1,15 +1,15 @@
 define({
-  "name": "user-api",
+  "name": "The brand new User API for CDA",
   "version": "1.0.0",
-  "description": "User-API",
-  "title": "USER API",
+  "description": "",
+  "title": "User API",
   "url": "https://api.github.com/v1",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2020-03-23T00:47:21.242Z",
+    "time": "2020-03-23T21:42:32.286Z",
     "url": "http://apidocjs.com",
     "version": "0.20.1"
   }

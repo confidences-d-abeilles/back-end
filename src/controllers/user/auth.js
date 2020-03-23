@@ -8,23 +8,6 @@ const User = require('../../models/user');
 
 const Token = require('../../models/token');
 
-/**
- * @api {get} /getJwt Generate a new Jwt
- * @apiName GetJwt
- * @apiGroup User
- * @apiVersion 1.0.0
- *
- * @apiParam {String} email Email address
- * @apiParam {String} password Password
- *
- * @apiErrorExample 401
- *  HTTP 401 Invalid credentials
- * @apiErrorExample 400
- *  HTTP 400 Missing parameters
- *
- * @apiSuccess {String} accessToken Newly created access token
- * @apiSuccess {String} renewToken Newly created renew token
- */
 const auth = async ({ body }, res) => {
   try {
     if (!checkFields(body, ['email', 'password'])) {
