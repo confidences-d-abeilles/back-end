@@ -1,13 +1,10 @@
 
-const { logDebug } = require('@cda/logger');
+const BaseModel = require('./base');
 
-const insertOne = async () => {
-  logDebug('Inserting one beehive');
+class Beehive extends BaseModel {
+  constructor(data = {}) {
+    super('user', ['id', 'name', 'occupation', 'identifier', 'memo'], data);
+  }
+}
 
-  logDebug('Success');
-  return null;
-};
-
-module.exports = {
-  insertOne,
-};
+module.exports = Beehive;

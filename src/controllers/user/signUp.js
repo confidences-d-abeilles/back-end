@@ -16,8 +16,8 @@ const signUp = async ({ body }, res) => {
     }
 
     const hashedPassword = await hash(body.password, 10);
-    await User.insertOne({ ...R.pick(fields, body), password: hashedPassword });
-
+    const user = new User({ ...R.pick(fields, body), password: hashedPassword });
+    await user.save();
     return res.status(200).send(OK);
   } catch (e) {
     logError(e);
