@@ -18,12 +18,7 @@ class Address {
     this.country = country;
   }
 
-  async save() {
-    const client = getClient();
-    logDebug('Inserting one address');
-    await client.insert(R.pick(['gender', 'firstname', 'name', 'line1', 'line2', 'zipcode', 'city', 'country'], this)).into('address');
-    logDebug('Success');
-  }
+
 }
 
 
