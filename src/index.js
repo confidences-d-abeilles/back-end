@@ -11,6 +11,7 @@ const beehiveRouter = require('./routers/beehive');
 const newsRouter = require('./routers/news');
 const orderRouter = require('./routers/order');
 const productRouter = require('./routers/product');
+const subscriptionRouter = require('./routers/subscription');
 
 const mandatoryFields = [
   'JWT_SECRET',
@@ -40,6 +41,7 @@ const port = 3000;
     app.use('/news', newsRouter);
     app.use('/order', orderRouter);
     app.use('/product', productRouter);
+    app.use('/product', subscriptionRouter);
 
     app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {
