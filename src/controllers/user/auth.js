@@ -1,6 +1,5 @@
-const { logError, logDebug } = require('@cda/logger');
+const { logError } = require('@cda/logger');
 const { compare } = require('bcrypt');
-const { signJwt } = require('../../utils/jwt');
 const { checkFields } = require('../../utils/request');
 const { SERV_ERR, MISS_PARAM, INVALID_CRED } = require('../../messages');
 
@@ -20,7 +19,7 @@ const auth = async ({ body }, res) => {
     }
 
     // TODO: Add roles here
-    const tokens = await signJwt(user.id, user.email, null);
+    const tokens = await user.signJwt();
     const token = new Token({ user_id: user.id, refresh_token: tokens.refreshToken });
     await token.save();
     return res.json(tokens).send();

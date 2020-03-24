@@ -12,8 +12,7 @@ const create = async ({ body }, res) => {
     if (!checkFields(body, fields)) {
       return res.status(400).send(MISS_PARAM);
     }
-    const toInsert = new Address(body);
-    await toInsert.save();
+    await new Address(body).save();
     return res.status(200).send(OK);
   } catch (e) {
     logError(e);
