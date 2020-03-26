@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { logError, logSuccess } = require('@cda/logger');
 const { checkEnv, getEnv } = require('@cda/env');
 
 const { initDb } = require('./database');
+const ownerMiddleware = require('./utils/owner');
 
 const userRouter = require('./routers/user');
 const addressRouter = require('./routers/address');
@@ -32,9 +34,10 @@ const port = 3000;
     checkEnv(env, mandatoryFields);
     await initDb();
 
+    app.use(cors());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-
+    app.use(ownerMiddleware);
     app.use('/user', userRouter);
     app.use('/address', addressRouter);
     app.use('/beehive', beehiveRouter);

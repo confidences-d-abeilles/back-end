@@ -1,5 +1,5 @@
 const { getEnv } = require('@cda/env');
-const { sign } = require('jsonwebtoken');
+const { sign, decode } = require('jsonwebtoken');
 
 const signJwt = (id, email, roles) => new Promise((resolve) => {
   const env = getEnv();
@@ -14,7 +14,9 @@ const signJwt = (id, email, roles) => new Promise((resolve) => {
   resolve({ accessToken, refreshToken });
 });
 
+const decodeJwt = (token) => decode(token);
 
 module.exports = {
   signJwt,
+  decodeJwt,
 };

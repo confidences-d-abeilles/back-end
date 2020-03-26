@@ -25,6 +25,6 @@ const router = Router();
  *
  * @apiSuccess {String} message OK
  */
-router.post('/', create);
+router.post('/:type?', create);
 
 module.exports = router;

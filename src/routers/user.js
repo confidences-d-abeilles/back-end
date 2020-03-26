@@ -43,4 +43,8 @@ router.post('/auth', auth);
  */
 router.post('/signup', signUp);
 
+
+
+router.get('/', (req, res) => res.status(200).send(req.owner.toJson()));
+
 module.exports = router;
