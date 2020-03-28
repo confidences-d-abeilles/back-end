@@ -22,7 +22,7 @@ const auth = async ({ body }, res) => {
     const tokens = await user.signJwt();
     const token = new Token({ user_id: user.id, refresh_token: tokens.refreshToken });
     await token.save();
-    return res.json(tokens).send();
+    return res.status(200).send(tokens);
   } catch (e) {
     logError(e);
     return res.status(500).send(SERV_ERR);

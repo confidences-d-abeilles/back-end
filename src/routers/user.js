@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { auth, signUp, get } = require('../controllers/user');
+const ownerMiddleware = require('../utils/owner');
 
 const router = Router();
 
@@ -44,7 +45,7 @@ router.post('/auth', auth);
 router.post('/signup', signUp);
 
 
-
+router.use(ownerMiddleware);
 router.get('/', get);
 
 module.exports = router;

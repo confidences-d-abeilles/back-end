@@ -6,16 +6,17 @@ const Address = require('../../models/address');
 
 const get = async (req, res) => {
   if (!req.owner) {
-    res.status(400).send(SERV_ERR);
+    return res.status(400).send(SERV_ERR);
   }
   try {
     req.owner.billing_address = (await new Address()
       .findOne({ id: req.owner.billing_address })).toJson();
     req.owner.delivery_address = (await new Address()
       .findOne({ id: req.owner.delivery_address })).toJson();
-    res.status(200).send(req.owner.toJson());
+    return res.status(200).send(req.owner.toJson());
   } catch (e) {
     logError(e);
+    return res.status(500).send(SERV_ERR);
   }
 };
 

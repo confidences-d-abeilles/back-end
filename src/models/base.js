@@ -21,7 +21,7 @@ class BaseModel {
       return null;
     }
     const res = new this.constructor(rows[0]);
-    return res;
+    return res.toJson();
   }
 
   async find(fields) {
@@ -30,7 +30,7 @@ class BaseModel {
     const rows = await client.where(fields).select(this.fields).from(this.tableName);
     logDebug('Success');
     if (!rows.length) {
-      return null;
+      return [];
     }
     return rows.map((row) => new this.constructor(row).toJson());
   }

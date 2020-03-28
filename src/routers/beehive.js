@@ -23,4 +23,6 @@ const Hive = require('../controllers/beehive');
  */
 router.post('/', Hive.create);
 
+router.get('/:id', Hive.get);
+
 module.exports = router;

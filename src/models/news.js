@@ -3,7 +3,7 @@ const BaseModel = require('./base');
 
 class News extends BaseModel {
   constructor(data = {}) {
-    super('address', ['id', 'title', 'content'], data);
+    super('news', ['id', 'title', 'content', 'beehive'], data);
   }
 }
 

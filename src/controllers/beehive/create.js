@@ -6,7 +6,7 @@ const { SERV_ERR, OK, MISS_PARAM } = require('../../messages');
 
 const create = async ({ body }, res) => {
   try {
-    const fields = ['gender', 'name', 'firstname', 'line1', 'zipcode', 'city', 'country'];
+    const fields = ['name'];
     if (!checkFields(body, fields)) {
       return res.status(400).send(MISS_PARAM);
     }

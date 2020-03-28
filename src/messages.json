@@ -3,5 +3,6 @@
   "MISS_PARAM": "Missing parameters",
   "INVALID_CRED": "Invalid credentials",
   "OK": "Ok",
-  "NEED_AUTH": "You need to be authenticated"
+  "NEED_AUTH": "You need to be authenticated",
+  "EXP": "Invalid or expired token"
 }

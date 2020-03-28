@@ -37,6 +37,7 @@ const port = 3000;
     app.use(cors());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
+    app.use('/user', userRouter);
     app.use(ownerMiddleware);
     app.use('/user', userRouter);
     app.use('/address', addressRouter);
