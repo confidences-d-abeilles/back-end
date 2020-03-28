@@ -6,7 +6,7 @@ const { SERV_ERR, MISS_PARAM, INVALID_CRED } = require('../../messages');
 const Token = require('../../models/token');
 const User = require('../../models/user');
 
-const refreshToken = async ({ body, owner }, res) => {
+const refreshToken = async ({ body }, res) => {
   logDebug('refreshing token');
   try {
     if (!checkFields(body, ['refreshToken', 'accessToken'])) {

@@ -1,5 +1,5 @@
 
-const { logDebug, logError } = require('@cda/logger');
+const { logError } = require('@cda/logger');
 const { SERV_ERR, MISS_PARAM, OK } = require('../../messages');
 const Subscription = require('../../models/subscription');
 const { checkFields } = require('../../utils/request');
