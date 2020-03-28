@@ -12,7 +12,7 @@ class BaseModel {
     Object.assign(this, R.pick(this.fields, data));
   }
 
-  async findOne(fields) {
+  async findOne(fields, { toJson } = { toJson: true }) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
     const rows = await client.where(fields).select(this.fields).from(this.tableName);
@@ -21,7 +21,14 @@ class BaseModel {
       return null;
     }
     const res = new this.constructor(rows[0]);
-    return res.toJson();
+    return toJson ? res.toJson() : res;
+  }
+
+  async delete() {
+    logDebug(`Deleting ${this.tableName}`);
+    const client = getClient();
+    await client.where(this.toJson()).from(this.tableName).del();
+    logDebug('Success');
   }
 
   async find(fields) {

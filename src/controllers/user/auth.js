@@ -13,7 +13,7 @@ const auth = async ({ body }, res) => {
       return res.status(400).send(MISS_PARAM);
     }
     const { email, password } = body;
-    const user = await new User().findOne({ email });
+    const user = await new User().findOne({ email }, { toJson: false });
     if (!user || !(await compare(password, user.password))) {
       return res.status(401).send(INVALID_CRED);
     }
@@ -24,10 +24,9 @@ const auth = async ({ body }, res) => {
     await token.save();
     return res.status(200).send(tokens);
   } catch (e) {
-    logError(e);
+    logError(`toto ${e}`);
     return res.status(500).send(SERV_ERR);
   }
 };
-
 
 module.exports = auth;

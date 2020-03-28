@@ -43,7 +43,6 @@ class Subscription extends BaseModel {
   }
 
   toJson() {
-    console.log(this);
     return R.pick([...this.fields, 'beehive'], this);
   }
 }

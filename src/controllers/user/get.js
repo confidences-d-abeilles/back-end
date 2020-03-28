@@ -9,11 +9,11 @@ const get = async (req, res) => {
     return res.status(400).send(SERV_ERR);
   }
   try {
-    req.owner.billing_address = (await new Address()
-      .findOne({ id: req.owner.billing_address })).toJson();
-    req.owner.delivery_address = (await new Address()
-      .findOne({ id: req.owner.delivery_address })).toJson();
-    return res.status(200).send(req.owner.toJson());
+    req.owner.billingAddress = (await new Address()
+      .findOne({ id: req.owner.billingAddress }));
+    req.owner.deliveryAddress = (await new Address()
+      .findOne({ id: req.owner.deliveryAddress }));
+    return res.status(200).send(req.owner);
   } catch (e) {
     logError(e);
     return res.status(500).send(SERV_ERR);

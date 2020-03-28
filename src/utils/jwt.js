@@ -14,9 +14,12 @@ const signJwt = (id, email, roles) => new Promise((resolve) => {
   resolve({ accessToken, refreshToken });
 });
 
+const getJwt = (authorization) => authorization.split(' ')[1];
+
 const decodeJwt = (token) => decode(token);
 
 module.exports = {
+  getJwt,
   signJwt,
   decodeJwt,
 };

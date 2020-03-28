@@ -1,11 +1,9 @@
 
-const { logDebug, logError } = require('@cda/logger');
+const { logError } = require('@cda/logger');
 
 const { EXP } = require('../messages');
-const { decodeJwt } = require('./jwt');
+const { decodeJwt, getJwt } = require('./jwt');
 const User = require('../models/user');
-
-const getJwt = (authorization) => authorization.split(' ')[1];
 
 const ownerMiddleware = async (req, res, next) => {
   const { authorization } = req.headers;

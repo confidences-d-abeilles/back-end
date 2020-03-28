@@ -5,6 +5,7 @@ const { logError, logSuccess } = require('@cda/logger');
 const { checkEnv, getEnv } = require('@cda/env');
 
 const { initDb } = require('./database');
+
 const ownerMiddleware = require('./utils/owner');
 
 const userRouter = require('./routers/user');
@@ -39,7 +40,6 @@ const port = 3000;
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use('/user', userRouter);
     app.use(ownerMiddleware);
-    app.use('/user', userRouter);
     app.use('/address', addressRouter);
     app.use('/beehive', beehiveRouter);
     app.use('/news', newsRouter);

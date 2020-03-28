@@ -1,12 +1,14 @@
 const { Router } = require('express');
-const { auth, signUp, get } = require('../controllers/user');
+const {
+  auth, signUp, get, refresh,
+} = require('../controllers/user');
 const ownerMiddleware = require('../utils/owner');
 
 const router = Router();
 
 
 /**
- * @api {post} /user/auth Generate a new Jwt
+ * @api {post} /user/auth Generate a new Jwt`
  * @apiName Authenticate
  * @apiGroup User
  * @apiVersion 1.0.0
@@ -44,6 +46,7 @@ router.post('/auth', auth);
  */
 router.post('/signup', signUp);
 
+router.post('/renew', refresh);
 
 router.use(ownerMiddleware);
 router.get('/', get);
