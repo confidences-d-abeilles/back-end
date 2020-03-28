@@ -44,7 +44,7 @@ const port = 3000;
     app.use('/news', newsRouter);
     app.use('/order', orderRouter);
     app.use('/product', productRouter);
-    app.use('/product', subscriptionRouter);
+    app.use('/subscription', subscriptionRouter);
 
     app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {

@@ -14,7 +14,11 @@ class User extends BaseModel {
   }
 
   toJson() {
-    return R.omit(['password'], R.pick(this.fields, this));
+    return {
+      ...R.omit(['password', 'billing_address', 'delivery_address'], R.pick(this.fields, this)),
+      deliveryAddress: this.delivery_address,
+      billingAddress: this.billing_address,
+    };
   }
 }
 

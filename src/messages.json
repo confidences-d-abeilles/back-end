@@ -2,5 +2,6 @@
   "SERV_ERR": "Internal server error",
   "MISS_PARAM": "Missing parameters",
   "INVALID_CRED": "Invalid credentials",
-  "OK": "Ok"
+  "OK": "Ok",
+  "NEED_AUTH": "You need to be authenticated"
 }

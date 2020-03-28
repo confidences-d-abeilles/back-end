@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { auth, signUp } = require('../controllers/user');
+const { auth, signUp, get } = require('../controllers/user');
 
 const router = Router();
 
@@ -45,6 +45,6 @@ router.post('/signup', signUp);
 
 
 
-router.get('/', (req, res) => res.status(200).send(req.owner.toJson()));
+router.get('/', get);
 
 module.exports = router;
