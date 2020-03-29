@@ -16,6 +16,7 @@ const newsRouter = require('./routers/news');
 const orderRouter = require('./routers/order');
 const productRouter = require('./routers/product');
 const subscriptionRouter = require('./routers/subscription');
+const fileRouter = require('./routers/file');
 
 const mandatoryFields = [
   'JWT_SECRET',
@@ -30,11 +31,13 @@ const mandatoryFields = [
 const app = express();
 const port = 3000;
 
+
 (async () => {
   try {
     const env = getEnv();
     checkEnv(env, mandatoryFields);
     await initDb();
+    app.use('/static', express.static('upload'));
 
     app.use(cors());
     app.use(bodyParser.json());
@@ -48,8 +51,9 @@ const port = 3000;
     app.use('/order', orderRouter);
     app.use('/product', productRouter);
     app.use('/subscription', subscriptionRouter);
+    app.use('/file', fileRouter);
 
-    app.listen(port, () => logSuccess(`Server started and listening on port ${port}`));
+    app.listen(port, '0.0.0.0', () => logSuccess(`Server started and listening on port ${port}`));
   } catch (e) {
     logError(e.message);
   }

@@ -5,6 +5,12 @@ const { logDebug } = require('@cda/logger');
 const { getClient } = require('../database');
 
 class BaseModel {
+  /**
+   * @constructor
+   * @param {!string} tableName
+   * @param {string[]} fields
+   * @param {Object} data
+   */
   constructor(tableName, fields, data) {
     this.fields = fields;
     this.dbFields = fields.map((field) => `${tableName}.${field}`);
@@ -14,7 +20,7 @@ class BaseModel {
 
   /**
    *
-   * @param fields To be passed to the where clause
+   * @param {!string} fields To be passed to the where clause
    * @param toJson If you intend to make some operations on the entity,
    * should be forced to false
    * @returns {Promise<null|*>}
