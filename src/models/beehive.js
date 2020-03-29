@@ -11,8 +11,8 @@ class Beehive extends BaseModel {
   async search(search) {
     logDebug(`Searching ${this.tableName}`);
     const client = getClient();
-    const rows = await client.where('name', 'like', `%${search}%`)
-      .orWhere('identifier', 'like', `%${search}%`)
+    const rows = await client.where('name', 'ilike', `%${search}%`)
+      .orWhere('identifier', 'ilike', `%${search}%`)
       .orWhere('lat', '=', parseFloat(search))
       .orWhere('long', '=', parseFloat(search))
       .select(this.dbFields)

@@ -160,6 +160,65 @@ define({ "api": [
     "groupTitle": "Beehive"
   },
   {
+    "type": "get",
+    "url": "/beehive",
+    "title": "Get all beehives",
+    "name": "GetBeehives",
+    "group": "Beehive",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "beehives",
+            "description": "<p>All beehives corresponding to criteria</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/beehive.js",
+    "groupTitle": "Beehive"
+  },
+  {
+    "type": "get",
+    "url": "/beehive/search/:search",
+    "title": "Search with the given string in all beehives",
+    "name": "SearchBeehives",
+    "group": "Beehive",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "search",
+            "description": "<p>String of what you're looking for</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "beehives",
+            "description": "<p>All beehives corresponding to criteria</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/beehive.js",
+    "groupTitle": "Beehive"
+  },
+  {
     "type": "post",
     "url": "/news",
     "title": "Creates a news",
