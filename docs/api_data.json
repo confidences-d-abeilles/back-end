@@ -214,7 +214,7 @@
   {
     "type": "post",
     "url": "/user/auth",
-    "title": "Generate a new Jwt`",
+    "title": "Generate a new Jwt",
     "name": "Authenticate",
     "group": "User",
     "version": "1.0.0",

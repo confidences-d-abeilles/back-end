@@ -8,7 +8,7 @@ const router = Router();
 
 
 /**
- * @api {post} /user/auth Generate a new Jwt`
+ * @api {post} /user/auth Generate a new Jwt
  * @apiName Authenticate
  * @apiGroup User
  * @apiVersion 1.0.0
