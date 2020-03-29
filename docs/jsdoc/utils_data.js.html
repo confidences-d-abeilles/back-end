@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: utils/data.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,35 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: utils/data.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Data manipulation module
+ * @module data
+ */
 
+/**
+ * Prefix all keys (fields) with the table name separated with a dot, making them sql complete.
+ *
+ * @param {!Object.&lt;string>} fields
+ * @param {!string} tableName
+ * @returns {!Object.&lt;string>}
+ */
+const toSqlFields = (fields, tableName) => Object.entries(fields).reduce((acc, [key, value]) => ({ ...acc, [`${tableName}.${key}`]: value }), {});
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = {
+  toSqlFields,
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -1,4 +1,10 @@
 /**
+ * Data manipulation module
+ * @module data
+ */
+
+/**
+ * Prefix all keys (fields) with the table name separated with a dot, making them sql complete.
  *
  * @param {!Object.<string>} fields
  * @param {!string} tableName
