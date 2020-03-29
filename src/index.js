@@ -9,6 +9,7 @@ const { initDb } = require('./database');
 const ownerMiddleware = require('./utils/owner');
 
 const userRouter = require('./routers/user');
+const roleRouter = require('./routers/role');
 const addressRouter = require('./routers/address');
 const beehiveRouter = require('./routers/beehive');
 const newsRouter = require('./routers/news');
@@ -41,6 +42,7 @@ const port = 3000;
     app.use('/user', userRouter);
     app.use(ownerMiddleware);
     app.use('/address', addressRouter);
+    app.use('/role', roleRouter);
     app.use('/beehive', beehiveRouter);
     app.use('/news', newsRouter);
     app.use('/order', orderRouter);

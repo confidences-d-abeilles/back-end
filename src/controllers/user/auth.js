@@ -24,7 +24,7 @@ const auth = async ({ body }, res) => {
     await token.save();
     return res.status(200).send(tokens);
   } catch (e) {
-    logError(`toto ${e}`);
+    logError(e);
     return res.status(500).send(SERV_ERR);
   }
 };
