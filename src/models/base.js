@@ -12,6 +12,13 @@ class BaseModel {
     Object.assign(this, R.pick(this.fields, data));
   }
 
+  /**
+   *
+   * @param fields To be passed to the where clause
+   * @param toJson If you intend to make some operations on the entity,
+   * should be forced to false
+   * @returns {Promise<null|*>}
+   */
   async findOne(fields, { toJson } = { toJson: true }) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
@@ -31,10 +38,10 @@ class BaseModel {
     logDebug('Success');
   }
 
-  async find(fields) {
+  async find(fields = {}) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
-    const rows = await client.where(fields).select(this.fields).from(this.tableName);
+    const rows = await client.where(fields).select(this.dbFields).from(this.tableName);
     logDebug('Success');
     if (!rows.length) {
       return [];

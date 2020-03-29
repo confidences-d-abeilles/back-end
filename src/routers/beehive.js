@@ -25,4 +25,6 @@ router.post('/', Hive.create);
 
 router.get('/:id', Hive.get);
 
+router.get('/', Hive.getAll);
+
 module.exports = router;

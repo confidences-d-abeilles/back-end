@@ -214,7 +214,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/user/auth",
-    "title": "Generate a new Jwt",
+    "title": "Generate a new Jwt`",
     "name": "Authenticate",
     "group": "User",
     "version": "1.0.0",
@@ -268,6 +268,116 @@ define({ "api": [
             "optional": false,
             "field": "renewToken",
             "description": "<p>Newly created renew token</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/user/all",
+    "title": "Get all users",
+    "name": "GetAll",
+    "group": "User",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "users",
+            "description": "<p>A complete list of all users</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user/renew",
+    "title": "Renew a Jwt with an expired accessToken and a refreshToken`",
+    "name": "Refresh",
+    "group": "User",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": "<p>An expired access token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "refreshToken",
+            "description": "<p>An valid refresh token</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "401",
+          "content": "HTTP 401 Invalid credentials",
+          "type": "json"
+        },
+        {
+          "title": "400",
+          "content": "HTTP 400 Missing parameters",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "accessToken",
+            "description": "<p>Newly created access token</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "renewToken",
+            "description": "<p>Newly created renew token</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/user",
+    "title": "Renew a Jwt with an expired accessToken and a refreshToken`",
+    "name": "Refresh",
+    "group": "User",
+    "version": "1.0.0",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "user",
+            "description": "<p>My personal user object</p>"
           }
         ]
       }

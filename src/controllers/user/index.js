@@ -2,6 +2,7 @@
 const auth = require('./auth');
 const signUp = require('./signUp');
 const get = require('./get');
+const getAll = require('./getAll');
 const refresh = require('./refresh');
 
 module.exports = {
@@ -9,4 +10,5 @@ module.exports = {
   signUp,
   get,
   refresh,
+  getAll,
 };
