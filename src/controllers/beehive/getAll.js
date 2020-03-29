@@ -3,9 +3,11 @@ const { logError } = require('@cda/logger');
 const Beehive = require('../../models/beehive');
 const { SERV_ERR } = require('../../messages');
 
-const get = async (req, res) => {
+const get = async ({ params }, res) => {
   try {
-    const beehives = await new Beehive().find();
+    const beehives = params.search
+      ? await new Beehive().search(params.search)
+      : await new Beehive().find();
     return res.status(200).send(beehives);
   } catch (e) {
     logError(e);
