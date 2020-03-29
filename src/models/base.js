@@ -7,9 +7,9 @@ const { getClient } = require('../database');
 class BaseModel {
   /**
    * @constructor
-   * @param {!string} tableName
+   * @param {string} tableName
    * @param {string[]} fields
-   * @param {Object} data
+   * @param {Object<string,*>} data
    */
   constructor(tableName, fields, data) {
     this.fields = fields;
@@ -19,9 +19,12 @@ class BaseModel {
   }
 
   /**
+   * Return one instance of the class, matching the criteria given by fields
    *
-   * @param {!string} fields To be passed to the where clause
-   * @param toJson If you intend to make some operations on the entity,
+   * @async
+   * @param {Object<string,*>} fields To be passed to the where clause
+   * @param {Object} opts Options
+   * @param {boolean} [opts.toJson=true] If you intend to make some operations on the entity,
    * should be forced to false
    * @returns {Promise<null|*>}
    */
@@ -37,6 +40,12 @@ class BaseModel {
     return toJson ? res.toJson() : res;
   }
 
+  /**
+   * Delete the current instance from database
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
   async delete() {
     logDebug(`Deleting ${this.tableName}`);
     const client = getClient();
@@ -44,6 +53,11 @@ class BaseModel {
     logDebug('Success');
   }
 
+  /**
+   *
+   * @param {Object<string,*>} fields To be passed to the where clause
+   * @returns {Promise<Object[]>}
+   */
   async find(fields = {}) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
