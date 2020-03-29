@@ -47,7 +47,7 @@ router.post('/auth', auth);
 router.post('/signup', signUp);
 
 /**
- * @api {post} /user/renew Renew a Jwt with an expired accessToken and a refreshToken`
+ * @api {post} /user/renew Renew a Jwt with an expired accessToken and a refreshToken
  * @apiName Refresh
  * @apiGroup User
  * @apiVersion 1.0.0
@@ -67,7 +67,7 @@ router.post('/renew', refresh);
 
 router.use(ownerMiddleware);
 /**
- * @api {get} /user Renew a Jwt with an expired accessToken and a refreshToken`
+ * @api {get} /user Renew a Jwt with an expired accessToken and a refreshToken
  * @apiName Refresh
  * @apiGroup User
  * @apiVersion 1.0.0

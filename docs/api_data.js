@@ -301,7 +301,7 @@ define({ "api": [
   {
     "type": "post",
     "url": "/user/renew",
-    "title": "Renew a Jwt with an expired accessToken and a refreshToken`",
+    "title": "Renew a Jwt with an expired accessToken and a refreshToken",
     "name": "Refresh",
     "group": "User",
     "version": "1.0.0",
@@ -365,7 +365,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "/user",
-    "title": "Renew a Jwt with an expired accessToken and a refreshToken`",
+    "title": "Renew a Jwt with an expired accessToken and a refreshToken",
     "name": "Refresh",
     "group": "User",
     "version": "1.0.0",
