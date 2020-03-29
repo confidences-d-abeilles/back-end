@@ -1,5 +1,5 @@
 define({
-  "name": "The brand new User API for CDA",
+  "name": "The brand new API for CDA",
   "version": "1.0.0",
   "description": "",
   "title": "Bee API",
@@ -9,7 +9,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2020-03-29T15:24:00.019Z",
+    "time": "2020-03-29T20:44:34.880Z",
     "url": "http://apidocjs.com",
     "version": "0.20.1"
   }
