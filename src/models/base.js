@@ -73,6 +73,7 @@ class BaseModel {
     const client = getClient();
     logDebug(`Saving ${this.tableName}`);
     if (this.id) {
+      logDebug('It\'s an update');
       const rows = await client.update(R.pick(this.fields, this), ['*']).into(this.tableName).where({ id: this.id });
       Object.assign(this, R.pick(this.fields, rows[0]));
     } else {
