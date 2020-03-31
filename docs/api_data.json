@@ -241,6 +241,79 @@
             "optional": false,
             "field": "content",
             "description": "<p>Content of the article</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "beehive",
+            "description": "<p>Id of the beehive to attach to</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "400",
+          "content": "HTTP 400 Missing parameters",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/routers/news.js",
+    "groupTitle": "News"
+  },
+  {
+    "type": "put",
+    "url": "/news",
+    "title": "Update a news",
+    "name": "UpdateNews",
+    "group": "News",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id of the news to update</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>Title of the article</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "content",
+            "description": "<p>Content of the article</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "beehive",
+            "description": "<p>Id of the beehive to attach to</p>"
           }
         ]
       }
