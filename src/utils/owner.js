@@ -17,7 +17,7 @@ const ownerMiddleware = async (req, res, next) => {
       if (exp * 1000 < Date.now()) {
         return res.status(401).send(EXP);
       }
-      req.owner = await new User().findOne({ email });
+      req.owner = await new User().findOne({ email }, { toJson: false });
     }
   } catch (e) {
     logError(e);

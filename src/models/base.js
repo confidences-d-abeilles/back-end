@@ -15,7 +15,12 @@ class BaseModel {
     this.fields = fields;
     this.dbFields = fields.map((field) => `${tableName}.${field}`);
     this.tableName = tableName;
+    this.updateUnprefixedDbFields();
     Object.assign(this, R.pick(this.fields, data));
+  }
+
+  updateUnprefixedDbFields() {
+    this.unprefixedDbFields = this.dbFields.map((field) => field.split('.')[1]);
   }
 
   /**
@@ -74,10 +79,10 @@ class BaseModel {
     logDebug(`Saving ${this.tableName}`);
     if (this.id) {
       logDebug('It\'s an update');
-      const rows = await client.update(R.pick(this.fields, this), ['*']).into(this.tableName).where({ id: this.id });
+      const rows = await client.update(R.pick(this.unprefixedDbFields, this), ['*']).into(this.tableName).where({ id: this.id });
       Object.assign(this, R.pick(this.fields, rows[0]));
     } else {
-      const rows = await client.insert(R.pick(this.fields, this), ['*']).into(this.tableName);
+      const rows = await client.insert(R.pick(this.unprefixedDbFields, this), ['*']).into(this.tableName);
       Object.assign(this, R.pick(this.fields, rows[0]));
     }
     logDebug('Success');

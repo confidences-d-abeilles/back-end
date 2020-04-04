@@ -11,6 +11,7 @@ class User extends BaseModel {
   constructor(data = {}) {
     super('user', ['id', 'email', 'roles', 'password', 'firstname', 'name', 'phone', 'gender', 'billing_address', 'delivery_address'], data);
     this.dbFields.splice(this.dbFields.indexOf(`${this.tableName}.roles`), 1);
+    this.updateUnprefixedDbFields();
   }
 
   async findOne(fields, { toJson } = { toJson: true }) {
