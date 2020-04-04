@@ -22,7 +22,7 @@ class Subscription extends BaseModel {
       .leftJoin('beehive', 'beehive.id', 'beehive_subscription.beehive');
     logDebug('Success');
     if (!rows.length) {
-      return null;
+      return [];
     }
     return rows.map(({
       productName, beehiveName, beehiveId, ...row
