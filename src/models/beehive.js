@@ -9,7 +9,7 @@ const BaseModel = require('./base');
 class Beehive extends BaseModel {
   constructor(data = {}) {
     super('beehive', ['id', 'name', 'occupation', 'identifier', 'memo', 'lat', 'long', 'temp_in', 'temp_out', 'hygrometry', 'images'], data);
-    this.dbFields.splice(this.dbFields.indexOf(`${this.tableName}.images`), 1);
+    this.removeDbField('images');
   }
 
   async search(search) {

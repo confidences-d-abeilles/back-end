@@ -19,6 +19,11 @@ class BaseModel {
     Object.assign(this, R.pick(this.fields, data));
   }
 
+  removeDbField(field) {
+    this.dbFields.splice(this.dbFields.indexOf(`${this.tableName}.${field}`), 1);
+    this.updateUnprefixedDbFields();
+  }
+
   updateUnprefixedDbFields() {
     this.unprefixedDbFields = this.dbFields.map((field) => field.split('.')[1]);
   }
@@ -82,7 +87,7 @@ class BaseModel {
       const rows = await client.update(R.pick(this.unprefixedDbFields, this), ['*']).into(this.tableName).where({ id: this.id });
       Object.assign(this, R.pick(this.fields, rows[0]));
     } else {
-      const rows = await client.insert(R.pick(this.unprefixedDbFields, this), ['*']).into(this.tableName);
+        const rows = await client.insert(R.pick(this.unprefixedDbFields, this), ['*']).into(this.tableName);
       Object.assign(this, R.pick(this.fields, rows[0]));
     }
     logDebug('Success');
