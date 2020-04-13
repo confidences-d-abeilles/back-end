@@ -41,7 +41,7 @@ class BaseModel {
   async findOne(fields, { toJson } = { toJson: true }) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
-    const rows = await client.where(fields).select(this.fields).from(this.tableName);
+    const rows = await client.where(fields).select(this.dbFields).from(this.tableName);
     logDebug('Success');
     if (!rows[0]) {
       return null;

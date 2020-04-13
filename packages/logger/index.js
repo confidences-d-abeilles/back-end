@@ -6,7 +6,12 @@ const withTime = (message) => {
   console.log(chalk.rgb(100, 100, 100)(timestamp.toLocaleString()), message);
 };
 
-const logError = (message) => withTime(chalk.red(message));
+const logError = (error) => {
+  const message = error.message;
+  const trace = error.stack;
+  withTime(chalk.red(message));
+  withTime(chalk.red(trace));
+}
 
 const logWarning = (message) => withTime(chalk.yellow(message));
 
