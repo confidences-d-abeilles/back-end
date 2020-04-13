@@ -16,14 +16,12 @@ const pay = async ({ params }, res) => {
     const order = await new Order().findOne({ id: params.orderId });
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [{
-        name: 'T-shirt',
-        description: 'Comfortable cotton t-shirt',
-        images: ['https://example.com/t-shirt.png'],
-        amount: order.price,
+      line_items: order.products.map(({ name, price, quantity }) => ({
+        name,
+        amount: price,
+        quantity,
         currency: 'eur',
-        quantity: 1,
-      }],
+      })),
       success_url: 'http://localhost:9000/dashboard',
       cancel_url: 'http://localhost:9000/dashboard',
     });
