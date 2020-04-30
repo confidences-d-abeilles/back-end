@@ -32,16 +32,17 @@ class Beehive extends BaseModel {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
     const rows = await client.where(toSqlFields(fields, this.tableName))
-      .select([...this.dbFields, client.raw('json_agg("file"."filename") as images')])
-      .leftJoin('beehive_file', 'beehive_file.beehive', 'beehive.id')
-      .leftJoin('file', 'beehive_file.file', 'file.id')
-      .groupBy('beehive.id')
+      .select([...this.dbFields])
       .from(this.tableName);
-    logDebug('Success');
     if (!rows[0]) {
       return null;
     }
-    const res = new this.constructor(rows[0]);
+    const images = await client.where({ 'beehive_file.beehive': rows[0].id })
+      .select(['filename'])
+      .leftJoin('file', 'beehive_file.file', 'file.id')
+      .from('beehive_file');
+    const res = new this.constructor({ ...rows[0], images: images.reduce((acc, val) =>  [...acc, val.filename],[]) });
+    logDebug('Success');
     return toJson ? res.toJson() : res;
   }
 }

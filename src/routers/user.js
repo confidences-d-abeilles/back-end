@@ -1,11 +1,10 @@
 const { Router } = require('express');
 const {
-  auth, signUp, get, refresh, getAll,
+  auth, signUp, get, refresh, getAll, update,
 } = require('../controllers/user');
 const ownerMiddleware = require('../utils/owner');
 
 const router = Router();
-
 
 /**
  * @api {post} /user/auth Generate a new Jwt
@@ -66,6 +65,7 @@ router.post('/signup', signUp);
 router.post('/renew', refresh);
 
 router.use(ownerMiddleware);
+
 /**
  * @api {get} /user Renew a Jwt with an expired accessToken and a refreshToken
  * @apiName Refresh
@@ -75,6 +75,7 @@ router.use(ownerMiddleware);
  * @apiSuccess {Object} user My personal user object
  */
 router.get('/', get);
+
 /**
  * @api {get} /user/all Get all users
  * @apiName GetAll
@@ -84,5 +85,8 @@ router.get('/', get);
  * @apiSuccess {Array} users A complete list of all users
  */
 router.get('/all', getAll);
+router.get('/:id', get);
+
+router.patch('', update);
 
 module.exports = router;

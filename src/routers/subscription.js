@@ -1,6 +1,6 @@
 
 const { Router } = require('express');
-const { create, get } = require('../controllers/subscription');
+const { create, get, getAll } = require('../controllers/subscription');
 
 const router = Router();
 
@@ -16,6 +16,8 @@ const router = Router();
  * @apiSuccess {Array} subscriptions All my subscriptions
  */
 router.get('/', get);
+
+router.get('/all', getAll);
 
 /**
  * @api {post} /subscription Create a subscription

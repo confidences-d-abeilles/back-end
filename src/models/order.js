@@ -39,7 +39,7 @@ class Order extends BaseModel {
    * Return one instance of the class, matching the criteria given by fields
    *
    * @async
-   * @param {Object<string,*>} fields To be passed to the where clause
+   * @param {Object<string|number,*>} fields To be passed to the where clause
    * @param {Object} opts Options
    * @param {boolean} [opts.toJson=true] If you intend to make some operations on the entity,
    * should be forced to false
@@ -53,7 +53,7 @@ class Order extends BaseModel {
     if (!rows[0]) {
       return null;
     }
-    const products = await client.where({ order: rows[0].id }).select('price', 'quantity', 'name').from('order_product')
+    const products = await client.where({ order: rows[0].id }).select('price', 'quantity', 'name', 'product.id', 'product.duration').from('order_product')
       .leftJoin('product', 'product.id', 'order_product.product');
     const res = new this.constructor({
       ...rows[0],

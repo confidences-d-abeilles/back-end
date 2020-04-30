@@ -9,11 +9,11 @@ const Beehive = require('./beehive');
 
 class Subscription extends BaseModel {
   constructor(data = {}) {
-    super('subscription', ['id', 'product', 'user', 'status', 'beehive'], data);
+    super('subscription', ['id', 'product', 'user', 'status', 'beehive', 'start', 'end'], data);
     this.dbFields.splice(this.dbFields.indexOf(`${this.tableName}.beehive`), 1);
   }
 
-  async find(fields) {
+  async find(fields = {}) {
     logDebug(`Finding ${this.tableName}`);
     const client = getClient();
     const rows = await client.where(fields).select([...this.dbFields, 'beehive.name as beehiveName', 'beehive.id as beehiveId', 'product.name as productName'])
@@ -36,8 +36,8 @@ class Subscription extends BaseModel {
       }).toJson();
       return new this.constructor({
         ...row,
-        product,
-        beehive,
+        product: productName ? product : null,
+        beehive: beehiveId ? beehive : null,
       }).toJson();
     });
   }
